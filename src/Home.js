@@ -1,70 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
+import { collection,getDocs } from 'firebase/firestore'
+import{db}from "./firebase_config"
 
 function Home() {
+    const [users, setusers] = useState([]);
+    
+    useEffect(() => {
+      const usersCollectionRef=collection(db,"users");
+  getDocs(usersCollectionRef)
+  .then(res=>{
+    setusers(res.docs.map((doc)=>({...doc.data(),id:doc.id})))
+  })
+  .catch(err=>console.log(err))
+ 
+    }, []);
+console.log(users);
   return (
-    <div className='container-fluid p-0 m-0 overflow-auto'>
+    <div className='container-fluid '>
+    <div className=''>
     <Nav/>
-     <div className='bg-primary d-flex vh-100 justify-content-center align-items-center '>
-     <div className='rounded  bg-white pt-2 align-items-center
-     w-75 '>
-     <h3>Users List</h3>
-<table className="table">
-    <thead> 
-        <tr >
-            <th className='text-primary fs-4'>Name</th>
-            <th className='text-primary fs-4'>Image</th>
-            <th className='text-primary fs-4'>Email</th>
-            <th className='text-primary fs-4'>Phone</th>
-            <th className='text-primary fs-4'>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            
-            <td><b>Naol</b></td>
-            <td><img className='img_size' src={"https://th.bing.com/th/id/OIP.iZ0ppT_wpBOMf0dH97t_ZAHaEo?w=299&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7"} alt=''/></td>
-            <td><b>naolb06@gmail.com</b></td>
-            <td><b>0979235206</b></td>
-            <td>
-            <Link to={'/read'} className="btn btn-primary">Read</Link>
-            <button type="button" className="btn  mx-2 btn-info">Update</button>
-            <button type="button" className="btn btn-danger">Delete</button>
-            </td>
-            
-        </tr>
-        <tr>
-            
-            <td><b>Naol</b></td>
-            <td><img className='img_size' src={"https://th.bing.com/th/id/OIP.iZ0ppT_wpBOMf0dH97t_ZAHaEo?w=299&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7"} alt=''/></td>
-            <td><b>naolb06@gmail.com</b></td>
-            <td><b>0979235206</b></td>
-            <td>
-            <Link to={'/read'} className="btn btn-primary">Read</Link>
-            <button type="button" className="btn  mx-2 btn-info">Update</button>
-            <button type="button" className="btn btn-danger">Delete</button>
-            </td>
-            
-        </tr>
-        <tr>
-            
-        <td><b>Naol</b></td>
-        <td><img className='img_size' src={"https://th.bing.com/th/id/OIP.iZ0ppT_wpBOMf0dH97t_ZAHaEo?w=299&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7"} alt=''/></td>
-        <td><b>naolb06@gmail.com</b></td>
-        <td><b>0979235206</b></td>
-        <td>
-        <Link to={'/read'} className="btn btn-primary">Read</Link>
-        <button type="button" className="btn  mx-2 btn-info">Update</button>
-        <button type="button" className="btn btn-danger">Delete</button>
-        </td>
-        
-    </tr>
-    </tbody>
-</table>
-
-     </div>
     </div>
+    <div className="container-fluid">
+  <div className="row d-flex justify-content-center">
+ 
+ {users.map((user)=>{
+return <div className="col-lg-3 col-sm-4 border mt-md-5 m-3 m-md-4 p-4">
+<img src={`https://www.billboardmusicawards.com/wp-content/uploads/2019/04/XXXTENTACION.jpg`}
+ alt="..." className="img-fluid rounded-circle" />
+  <h3>{user.name}</h3>
+  <p>{user.email}</p>
+  <div className="d-flex justify-content-center">
+  <Link to={`/view/${user.id}`} className="btn btn-success m-2"><i className="bi bi-eye">View</i></Link>
+  <Link to={`/update/${user.id}`} className="btn btn-info m-2">Update</Link>
+</div>
+</div>
+ })} 
+
+
+
+  </div>
+</div>
     </div>
   )
 }

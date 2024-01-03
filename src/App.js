@@ -1,24 +1,19 @@
-
+import {Route,Routes} from 'react-router-dom'
 import './App.css';
-import{Route,Routes}from "react-router-dom"
 import Home from './Home';
-import bootstrap from "bootstrap/dist/css/bootstrap.min.css"
 import Create from './Create';
-import About from './About';
-import Contactus from './Contactus';
-import Read from './Read';
+import View from './View';
+import Update from './Update';
 function App() {
   return (
     <div className="App">
-      <Routes>
-      <Route path='/' element={<Home/>}/>
+    <Routes>
+      <Route path='/' element={<Home/>} naol/>
       <Route path='/create' element={<Create/>}/>
-      <Route path='/about' element={<About/>}/>
-      <Route path='/contact' element={<Contactus/>}/>
-      <Route path='/read' element={<Read/>}/>
-
+      <Route path='/view/:id' element={<View/>}/>
+      <Route path='/update/:id' element={<Update/>}/>
       </Routes>
-    </div>
+   </div>
   );
 }
 

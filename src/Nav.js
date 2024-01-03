@@ -1,19 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Nav() {
+function Nav({naol}) {
   return (
-    
-    <div className='bg-black d-flex   justify-content-end align-items-center p-3 '>
-    <ul className='d-flex bg-black align-items-center justify-content-space-between list-unstyled '>
-    <li className='mx-3 fs-3 bg-black ' ><Link className='bg-black text-decoration-none text-white' to={`/`}> Home</Link></li>
-    <li className='mx-3 fs-3 bg-black ' ><Link className='bg-black text-decoration-none text-white' to={`/create`}> Create +</Link></li>
-    <li className='mx-3 fs-3 bg-black'><Link className='bg-black text-decoration-none text-white'  to={`/about`}>About Us</Link></li>
-    <li className='mx-3 fs-3 bg-black'><Link className='bg-black text-decoration-none text-white'  to={`/contact`}>Contact Us</Link></li>
-    </ul>
-    
-    </div>
-   
+    <nav className="navbar navbar-light bg-black ">
+  <div className="container-fluid d-flex justify-content-space-between px-5">
+  <Link className='text-decoration-none' to={'/'}><i className="bi bi-house-heart-fill text-white" style={{ fontSize: 30 }}>Home</i> </Link>
+    <Link to={'/create'} className="btn  bg-white">Create +</Link>
+  </div>
+</nav>
   )
 }
 
