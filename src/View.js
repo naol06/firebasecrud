@@ -32,9 +32,9 @@ navigate('/')
     <Nav/>
     </div>
     <div className="container  d-md-flex justify-content-center align-items-center  vh-100 ">
-  <div className="row border   justify-content-left align-items-center">
+  <div className="row border m-0 p-5  justify-content-left align-items-center">
     <div className="col-md-5 ">
-      <img src={`https://www.billboardmusicawards.com/wp-content/uploads/2019/04/XXXTENTACION.jpg`} className="img-fluid" alt="User image"/>
+      <img src={`${data.images}`} className="img-fluid  ds_image rounded object-fit-cover" alt="User image"/>
     </div>
     <div className="col-md-5 ">
       <h3>{data.name}</h3>

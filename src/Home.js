@@ -27,8 +27,8 @@ console.log(users);
  
  {users.map((user)=>{
 return <div className="col-lg-3 col-sm-4 border mt-md-5 m-3 m-md-4 p-4">
-<img src={`https://www.billboardmusicawards.com/wp-content/uploads/2019/04/XXXTENTACION.jpg`}
- alt="..." className="img-fluid rounded-circle" />
+<img src={`${user.images}`}
+ alt="..." className="img-fluid ds_image rounded-circle" />
   <h3>{user.name}</h3>
   <p>{user.email}</p>
   <div className="d-flex justify-content-center">
