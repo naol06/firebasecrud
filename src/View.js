@@ -35,12 +35,12 @@ navigate('/')
     <div className="container  d-md-flex justify-content-center align-items-center  vh-100 ">
   <div className="row border m-0 p-5  justify-content-left align-items-center">
     <div className="col-md-5 ">
-      <img src={data.images ? `${data.images}` : "https://th.bing.com/th/id/OIP.QMjbYP6DkKUoUvkGTt6XSAHaE8?rs=1&pid=ImgDetMain"} className="img-fluid  ds_image rounded object-fit-cover" alt="User image"/>
+      <img src={data.images ? `${data.images}` : "https://th.bing.com/th/id/OIP.QMjbYP6DkKUoUvkGTt6XSAHaE8?rs=1&pid=ImgDetMain"} className="img-fluid  ds_image rounded object-fit-cover" alt="Userimage"/>
     </div>
     <div className="col-md-5 ">
-      <h3>{data.name}</h3>
-      <p><b>{data.email}</b></p>
-      <p>{data.description} </p>
+      <h3>{data.name? data.name:"Tentacion"}</h3>
+      <p><b>{data.email? data.email:"tentacion@gmail.com"}</b></p>
+      <p>{data.description? data.description:"This code will check if the data.image property is truthy, and if so, it will use it as the source. Otherwise, it will use the image from the internet. You can also use a relative path instead of a URL for the second image"} </p>
       <p></p>
     </div>
     <div className='d-flex justify-content-center justify-content-md-end'>
