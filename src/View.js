@@ -31,10 +31,11 @@ navigate('/')
     <div className='mb-5 mb-md-0'>
     <Nav/>
     </div>
+    
     <div className="container  d-md-flex justify-content-center align-items-center  vh-100 ">
   <div className="row border m-0 p-5  justify-content-left align-items-center">
     <div className="col-md-5 ">
-      <img src={`${data.images}`} className="img-fluid  ds_image rounded object-fit-cover" alt="User image"/>
+      <img src={data.images ? `${data.images}` : "https://th.bing.com/th/id/OIP.QMjbYP6DkKUoUvkGTt6XSAHaE8?rs=1&pid=ImgDetMain"} className="img-fluid  ds_image rounded object-fit-cover" alt="User image"/>
     </div>
     <div className="col-md-5 ">
       <h3>{data.name}</h3>

@@ -27,7 +27,7 @@ console.log(users);
  
  {users.map((user)=>{
 return <div className="col-lg-3 col-sm-4 border mt-md-5 m-3 m-md-4 p-4">
-<img src={`${user.images}`}
+<img src={user.images ? `${user.images}` : "https://th.bing.com/th/id/OIP.QMjbYP6DkKUoUvkGTt6XSAHaE8?rs=1&pid=ImgDetMain"}
  alt="..." className="img-fluid ds_image rounded-circle" />
   <h3>{user.name}</h3>
   <p>{user.email}</p>
