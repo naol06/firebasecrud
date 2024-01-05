@@ -75,9 +75,7 @@ function Create() {
    <div className='m-0 d-flex justify-content-center align-items-center vh-100 '>
    <div className=' rounded w-50 align-items-cnter bg-secondary p-5  '>
    <h2>create user</h2>
-   <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" >{progressbar}</div>
-</div>
+   
 
 <form onSubmit={handledata}>
 <div className="form-group mb-2">
